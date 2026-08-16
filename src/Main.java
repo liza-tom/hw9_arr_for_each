@@ -48,9 +48,11 @@ public class Main {
         inputArray2[3] = 1800;
         inputArray2[4] = 1000;
         float[] outputArray2 = new float[5];
-        for (int i = 0; i < inputArray2.length; i++) {
-            float tax = (float)(inputArray2[i] * 0.13);
-            outputArray2[i] = tax;
+        int i2 = 0;
+        for (int salary : inputArray2) {
+            float tax = (float)(salary * 0.13);
+            outputArray2[i2] = tax;
+            ++i2;
         }
         for (int salary : inputArray2) {
             System.out.print(salary);
@@ -75,13 +77,15 @@ public class Main {
         inputArray3[3] = 1800;
         inputArray3[4] = 4900;
         boolean[] outputArray3 = new boolean[5];
-        for (int i = 0; i < inputArray3.length; i++){
-            if (inputArray3[i] > 5000){
-                outputArray3[i] = true;
+        int i3 = 0;
+        for (int balance : inputArray3){
+            if (balance > 5000){
+                outputArray3[i3] = true;
             }
             else{
-                outputArray3[i] = false;
+                outputArray3[i3] = false;
             }
+            ++i3;
         }
         boolean isFirst = true;
         for (int salary : inputArray3) {
@@ -109,14 +113,14 @@ public class Main {
         inputArray4[2] = -120;
         inputArray4[3] = -1800;
         inputArray4[4] = 4900;
-        boolean[] outputArray4 = new boolean[5];
-        for (int i = 0; i < inputArray3.length; i++){
-            if (inputArray4[i] < 0){
-                outputArray4[i] = false;
+        boolean[] outputArray4 = new boolean[1];
+        for (int balance : inputArray4){
+            if (balance < 0){
+                outputArray4[0] = false;
                 break;
             }
             else{
-                outputArray4[i] = true;
+                outputArray4[0] = true;
             }
         }
         isFirst = true;
@@ -127,15 +131,8 @@ public class Main {
             System.out.print(balance);
             isFirst = false;
         }
-        isFirst = true;
         System.out.println();
-        for (boolean balance : outputArray4) {
-            if (!isFirst) {
-                System.out.print(", ");
-            }
-            System.out.print(balance);
-            isFirst = false;
-        }
+        System.out.print(outputArray4[0]);
         System.out.println();
 
         //task 5
@@ -145,12 +142,14 @@ public class Main {
         inputArray5[2] = -120;
         inputArray5[3] = -1800;
         inputArray5[4] = 4900;
+        int[] outputArray5 = new int[1];
         int profitableMonth = 0;
         for (int balance : inputArray5) {
             if (balance > 0){
                 profitableMonth++;
             }
         }
+        outputArray5[0] = profitableMonth;
         isFirst = true;
         for (int balance : inputArray5) {
             if (!isFirst) {
@@ -160,6 +159,6 @@ public class Main {
             isFirst = false;
         }
         System.out.println();
-        System.out.println(profitableMonth);
+        System.out.println(outputArray5[0]);
     }
 }
